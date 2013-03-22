@@ -1,0 +1,28 @@
+{
+  "name": "screenkit",
+  "version": "0.0.1",
+  "description": "Remote control screens",
+  "main": "lib/screenkit.js",
+  "dependencies": {
+    "socket.io": "~0.9.13"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {
+    "mocha": "~1.7.4"
+  },
+  "scripts": {
+    "test": "mocha test/*.js",
+    "start": "node demo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:richardleggett/screenkit.git"
+  },
+  "keywords": [
+    "node",
+    "screens",
+    "remote-control"
+  ],
+  "author": "Richard Leggett - http://www.valisinteractive.com",
+  "license": "MIT"
+}

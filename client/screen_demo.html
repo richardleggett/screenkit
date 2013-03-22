@@ -1,0 +1,23 @@
+<html >
+<title>ScreenKit Screen Demo</title>
+<head>
+<script src="screenkit.js"></script>
+<script type="text/javascript">
+// This is the web page would be opened in the mobile device's browser
+// when the user scans a QR-Code or NFC tag. Read more on this in the ScreenKit README.
+
+// connect to 'demo1' app
+var client = screenkit.connect('http://localhost:1337/?screenId=demo1');
+	client.on('news', function (data) {
+	console.log(data);
+	client.emit('my other event', { my: 'data' });
+});
+
+</script>
+<style type="text/css">
+</style>
+</head>
+<body>
+	<p>This demo illustrates </p>
+</body>
+</html>

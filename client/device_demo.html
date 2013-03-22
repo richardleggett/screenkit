@@ -1,0 +1,66 @@
+<html >
+<title>ScreenKit Device Demo</title>
+<head>
+
+<script src="screenkit.js"></script>
+<script type="text/javascript">
+// This is the web page would be opened in the mobile device's browser
+// when the user scans a QR-Code or NFC tag. Read more on this in the ScreenKit README.
+var client;
+
+function loaded() {
+  var thumbnail = document.getElementById('thumbnail');
+  var price = document.getElementById('price');
+  var description = document.getElementById('description');
+  var next = document.getElementById('next');
+  var previous = document.getElementById('previous');
+  
+  // hook up controls
+  next.onClick = goNext;
+  previous.onClick = goPrevious;
+
+  // connect to 'demo1' screen
+  client = screenkit.connect('http://localhost:1337/?screenId=demo1');
+  client.on('productDetails', function (data) {
+    thumbnail.src = data.imageSrc;
+    price.innerHTML = '';
+    price.appendChild(document.createTextNode(data.price));
+    description.innerHTML = '';
+    description.appendChild(document.createTextNode(data.description));
+  });
+}
+
+function goNext() {
+  if(client!=null) {
+    client.emit('next', {});
+  }
+}
+
+function goPrevious() {
+  if(client!=null) {
+    client.emit('previous', {});  
+  }
+}
+
+</script>
+
+<style type="text/css">
+
+</style>
+
+</head>
+<body onload="loaded();">
+	<h1>Browse Products</h1>
+
+	<div id="product">
+		<img id="thumbnail" />
+		<div id="price"></div>
+	    <div id="description"></div>
+    </div>
+    
+	<div id="controls">
+		<img id="next" src="right.png" />
+		<img id="previous" src="left.png" />
+	</div>
+</body>
+</html>
