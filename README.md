@@ -15,7 +15,7 @@ Installing
 	OSX: Either download and install Node directly from nodejs.org or preferably use Homebrew (or a similar package manager to install) node, the benefit of using a package manager is the ability to upgrade Node to the latest release with a simple command.
 
 Running the tests
-	If you plan on extending ScreenKit or getting into the nuts and bolts ScreenKit includes a number of tests you can run using Mocha: http://visionmedia.github.com/mocha/
+	If you plan on extending ScreenKit or getting into the nuts and bolts ScreenKit includes a number of tests you can run using Mocha: http://mochajs.org/
 	npm install -g mocha
 	Then run: mocha
 
